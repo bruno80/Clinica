@@ -1,0 +1,36 @@
+{% extends "base.html" %} 
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Nascimento</th>
+                        <th>Sexo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td>{{cliente.nome}}</td>
+                        <td>{{cliente.data_nascimento}}</td>
+                        <td>{{cliente.sexo}}</td>
+                        <td>
+                            <a href="/atendimento/cliente/{{cliente.id}}/">ver</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="text-align: left;">
+                            <p>O sistema encontrou {{clientes | length}} cliente(s) cadastrado(s)</p>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+{% endblock %}

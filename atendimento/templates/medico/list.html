@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>NOME</th>
+                    <th>DATA_NASCIMENTO</th>
+                    <th>CPF</th>
+                    <th>SEXO</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medico in medicos %}
+                <tr>
+                    <td>{{medico.nome}}</td>
+                    <td>{{medico.sexo}}</td>
+                    <td>{{medico.cpf}}</td>
+                    <td>{{medico.data_nascimento}}</td>
+                    <td>
+                        <a href="/atendimento/medico/{{medico.id}}/">ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align: left;">
+                        <p>O sistema encontrou {{medicos | length}} medico(s) cadastrado(s)</p>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+{% endblock %}

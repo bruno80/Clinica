@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+
+{% block content %}
+    <h1>Detalhes do cliente!</h1>
+    <div>
+        <label>Nome:</label>
+        {{cliente.nome}}
+    </div>
+    <div>
+        <label>Sexo:</label>
+        {{cliente.sexo}}
+    </div>
+    <div>
+        <label>Data Nascimento:</label>
+        {{cliente.data_nascimento}}
+    </div>
+    
+{% endblock %}
