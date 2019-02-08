@@ -63,4 +63,18 @@ def cliente_edit(request, cliente_id):
         form = ClienteForm(instance=cliente)
         return render(request, 'cliente/edit.html', {'form':form, 'cliente_id':cliente_id})
 
+def medico_edit(request, medico_id):
+    if (request.method == 'POST'):
+        medico = Medico.objects.get(pk=medico_id)
+        form = MedicoForm(request.POST, instance=medico)
+        if (form.is_valid()):
+            form.save()
+            return redirect('/atendimento/medico/')
+        else:
+            return render(request,'medico/edit.html', {'form':form, 'medico_id':medico_id})
+    else:
+        medico = Medico.objects.get(pk=medico_id)
+        form = MedicoForm(instance=medico)
+        return render(request, 'medico/edit.html', {'form':form, 'medico_id':medico_id})
+
 
